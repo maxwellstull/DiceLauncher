@@ -7,7 +7,7 @@
 int loop_delay = 50;
 
 /// Potentiometer
-int pot_pin = A0;
+int POT_PIN = A0;
 int pot_value = 0;
 int last_pot_value = 0;
 
@@ -59,7 +59,7 @@ void loop() {
   if(last_pot_value != pot_value)
   {  
     data.force = pot_value;
-    radio.write(&data, sizeof(data));
+  //  radio.write(&data, sizeof(data));
   }  
   // Check if start button pressed
   if(digitalRead(START_BUTTON) == 0)
