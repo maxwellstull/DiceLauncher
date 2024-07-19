@@ -59,7 +59,6 @@ void loop() {
   if(last_pot_value != pot_value)
   {  
     data.force = pot_value;
-  //  radio.write(&data, sizeof(data));
   }  
   // Check if start button pressed
   if(digitalRead(START_BUTTON) == 0)

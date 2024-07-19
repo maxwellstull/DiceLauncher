@@ -59,21 +59,23 @@ void loop() {
 //    float result = 180.0*(force)/1024.0;
 //    servo.write(result);
 
-    float force2 = data.force;
-    float result2 = 255.0*(force2/1024.0);
+    float force = data.force;
+   // float result = 255.0*((force)/1024.0);
+    float trim = 750.0;
+    float result = 255.0*((trim+force)/(1024.0+trim));
     //analogWrite(5, result2);
 
-    Serial.println(result2);
+    Serial.println(result);
     Serial.println();
 
     if(data.start == true)
     {
-      start_motor(result2);
+      start_motor(result);
     }
     if(data.launch == true)
     {
-      servo.write(40);
-      delay(100);
+      servo.write(35);
+      delay(300);
       analogWrite(5, 0);
       delay(1000);
       servo.write(10);
